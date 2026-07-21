@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ZPT Movies</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- =========================
+       PROFILE PIN PAGE
+  ========================== -->
+
+  <div id="profilePage" class="profile-page">
+
+    <div class="profile-container">
+
+      <h1>Siapa yang menonton?</h1>
+
+      <p class="profile-subtitle">
+        Pilih profil anda untuk teruskan
+      </p>
+
+      <div id="profileGrid" class="profile-grid">
+        <!-- Profil akan muncul melalui JavaScript -->
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       PIN POPUP
+  ========================== -->
+
+  <div id="pinModal" class="modal hidden">
+
+    <div class="pin-box">
+
+      <button id="closePin" class="close-button">
+        ×
+      </button>
+
+      <div class="pin-avatar" id="pinAvatar">
+        👤
+      </div>
+
+      <h2 id="selectedProfileName">
+        Profil
+      </h2>
+
+      <p>
+        Masukkan PIN untuk masuk
+      </p>
+
+      <input
+        type="password"
+        id="pinInput"
+        maxlength="4"
+        inputmode="numeric"
+        placeholder="PIN"
+      >
+
+      <button id="pinButton">
+        Teruskan
+      </button>
+
+      <p id="pinError" class="pin-error"></p>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       MOVIE APP
+  ========================== -->
+
+  <div id="movieApp" class="movie-app hidden">
+
+
+    <!-- NAVBAR -->
+
+    <header class="navbar">
+
+      <div class="nav-left">
+
+        <div class="logo">
+          ZPT
+        </div>
+
+        <span class="site-name">
+          ZPT Movies
+        </span>
+
+        <nav>
+
+          <a href="#home">
+            Utama
+          </a>
+
+          <a href="#action">
+            Aksi
+          </a>
+
+          <a href="#horror">
+            Seram
+          </a>
+
+        </nav>
+
+      </div>
+
+
+      <div class="nav-right">
+
+        <button
+          id="searchButton"
+          class="nav-button"
+        >
+          🔍
+        </button>
+
+        <button
+          id="profileButton"
+          class="profile-button"
+        >
+          👤
+        </button>
+
+      </div>
+
+    </header>
+
+
+
+    <!-- SEARCH -->
+
+    <div
+      id="searchContainer"
+      class="search-container hidden"
+    >
+
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Cari filem..."
+      >
+
+    </div>
+
+
+
+    <!-- HERO -->
+
+    <section
+      id="home"
+      class="hero"
+    >
+
+      <div class="hero-content">
+
+        <p class="hero-label">
+          ⭐ Pilihan Hari Ini
+        </p>
+
+        <h1 id="heroTitle">
+          Filem Pilihan
+        </h1>
+
+        <p id="heroDescription">
+          Nikmati koleksi filem aksi dan seram pilihan anda.
+        </p>
+
+        <button
+          id="heroButton"
+          class="watch-button"
+        >
+          ▶ Lihat Filem
+        </button>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="movie-content">
+
+
+      <!-- POPULAR -->
+
+      <section class="movie-section">
+
+        <div class="section-header">
+
+          <h2>
+            Popular Sekarang
+          </h2>
+
+          <button class="see-all">
+            Lihat Semua
+          </button>
+
+        </div>
+
+
+        <div
+          id="popularMovies"
+          class="movie-row"
+        >
+          <!-- Movie akan dimasukkan melalui JavaScript -->
+        </div>
+
+      </section>
+
+
+
+      <!-- ACTION -->
+
+      <section
+        id="action"
+        class="movie-section"
+      >
+
+        <div class="section-header">
+
+          <h2>
+            🔥 Aksi
+          </h2>
+
+        </div>
+
+
+        <div
+          id="actionMovies"
+          class="movie-row"
+        >
+          <!-- Movie aksi akan dimasukkan melalui JavaScript -->
+        </div>
+
+      </section>
+
+
+
+      <!-- HORROR -->
+
+      <section
+        id="horror"
+        class="movie-section"
+      >
+
+        <div class="section-header">
+
+          <h2>
+            👻 Seram
+          </h2>
+
+        </div>
+
+
+        <div
+          id="horrorMovies"
+          class="movie-row"
+        >
+          <!-- Movie seram akan dimasukkan melalui JavaScript -->
+        </div>
+
+      </section>
+
+
+    </main>
+
+
+
+    <!-- MOVIE DETAIL MODAL -->
+
+    <div
+      id="movieModal"
+      class="movie-modal hidden"
+    >
+
+      <div class="movie-detail">
+
+        <button
+          id="closeMovieModal"
+          class="close-movie"
+        >
+          ×
+        </button>
+
+        <img
+          id="detailPoster"
+          src=""
+          alt="Poster Filem"
+        >
+
+        <div class="detail-info">
+
+          <h2 id="detailTitle">
+            Tajuk Filem
+          </h2>
+
+          <p id="detailCategory">
+            Kategori
+          </p>
+
+          <p id="detailDescription">
+            Penerangan filem.
+          </p>
+
+          <button class="watch-button">
+            ▶ Tonton
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- PROFILE MENU -->
+
+    <div
+      id="profileMenu"
+      class="profile-menu hidden"
+    >
+
+      <p id="currentProfileName">
+        Profil
+      </p>
+
+      <button id="switchProfile">
+        Tukar Profil
+      </button>
+
+      <button id="logoutButton">
+        Log Keluar
+      </button>
+
+    </div>
+
+
+  </div>
+
+
+  <!-- JAVASCRIPT -->
+
+  <script src="script.js"></script>
+
+</body>
+</html>
