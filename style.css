@@ -1,0 +1,571 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #080808;
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+/* =========================
+   PROFILE PAGE
+========================= */
+
+.profile-page {
+  min-height: 100vh;
+  background: #080808;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.profile-container {
+  width: 100%;
+  max-width: 900px;
+  text-align: center;
+}
+
+.profile-container h1 {
+  font-size: 38px;
+  margin-bottom: 10px;
+}
+
+.profile-subtitle {
+  color: #999;
+  margin-bottom: 40px;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 30px;
+}
+
+.profile-card {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.profile-card:hover {
+  transform: scale(1.08);
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  margin: auto;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 55px;
+  background: #222;
+  border: 2px solid transparent;
+}
+
+.profile-card:hover .profile-avatar {
+  border-color: #ffffff;
+}
+
+.profile-name {
+  margin-top: 12px;
+  color: #bbbbbb;
+  font-size: 15px;
+}
+
+
+/* =========================
+   PIN MODAL
+========================= */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.pin-box {
+  width: 90%;
+  max-width: 350px;
+  background: #181818;
+  padding: 35px;
+  border-radius: 12px;
+  text-align: center;
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.pin-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  background: #333;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 38px;
+}
+
+.pin-box h2 {
+  margin-top: 15px;
+}
+
+.pin-box p {
+  color: #999;
+  margin: 10px 0 20px;
+}
+
+.pin-box input {
+  width: 100%;
+  padding: 14px;
+  background: #292929;
+  border: 1px solid #444;
+  color: white;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 20px;
+  letter-spacing: 8px;
+  outline: none;
+}
+
+#pinButton {
+  width: 100%;
+  margin-top: 15px;
+  padding: 13px;
+  background: #e50914;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#pinButton:hover {
+  background: #f40612;
+}
+
+.pin-error {
+  color: #ff4d4d !important;
+  min-height: 20px;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 65px;
+  padding: 0 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(8, 8, 8, 0.95);
+  z-index: 100;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.logo {
+  color: #e50914;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.site-name {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.navbar nav {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar nav a {
+  color: #ddd;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.navbar nav a:hover {
+  color: white;
+}
+
+.nav-right {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-button,
+.profile-button {
+  width: 38px;
+  height: 38px;
+  border: none;
+  background: #222;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-container {
+  position: fixed;
+  top: 65px;
+  right: 5%;
+  z-index: 99;
+  padding: 15px;
+  background: #181818;
+}
+
+.search-container input {
+  width: 280px;
+  padding: 12px;
+  background: #222;
+  border: 1px solid #444;
+  color: white;
+  outline: none;
+  border-radius: 5px;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  height: 75vh;
+  min-height: 500px;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 7% 80px;
+  background:
+    linear-gradient(
+      to top,
+      #080808 5%,
+      transparent 70%
+    ),
+    linear-gradient(
+      to right,
+      #080808 0%,
+      rgba(8, 8, 8, 0.7) 40%,
+      transparent 80%
+    ),
+    url("https://images.unsplash.com/photo-1500534623283-312aade485b7")
+    center / cover;
+}
+
+.hero-content {
+  max-width: 550px;
+}
+
+.hero-label {
+  color: #e50914;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.hero h1 {
+  font-size: 50px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  color: #ddd;
+  line-height: 1.6;
+}
+
+.watch-button {
+  margin-top: 25px;
+  padding: 13px 25px;
+  background: white;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.watch-button:hover {
+  background: #ddd;
+}
+
+
+/* =========================
+   MOVIE CONTENT
+========================= */
+
+.movie-content {
+  padding: 20px 5% 80px;
+}
+
+.movie-section {
+  margin-bottom: 45px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.section-header h2 {
+  font-size: 22px;
+}
+
+.see-all {
+  background: none;
+  border: none;
+  color: #aaa;
+  cursor: pointer;
+}
+
+
+/* =========================
+   MOVIE CARDS
+========================= */
+
+.movie-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 15px;
+}
+
+.movie-card {
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+}
+
+.movie-poster {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 6px;
+  background: #222;
+}
+
+.movie-title {
+  font-size: 14px;
+  margin-top: 8px;
+  font-weight: bold;
+}
+
+.movie-rating {
+  color: #f5c518;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+
+/* =========================
+   MOVIE MODAL
+========================= */
+
+.movie-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.movie-detail {
+  width: 90%;
+  max-width: 850px;
+  background: #181818;
+  display: flex;
+  gap: 30px;
+  padding: 30px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.movie-detail img {
+  width: 250px;
+  height: 370px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.detail-info {
+  padding-top: 20px;
+}
+
+.detail-info h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.detail-info p {
+  color: #bbb;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+.close-movie {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  border: none;
+  background: none;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+
+/* =========================
+   PROFILE MENU
+========================= */
+
+.profile-menu {
+  position: fixed;
+  right: 5%;
+  top: 70px;
+  width: 180px;
+  background: #181818;
+  padding: 15px;
+  border-radius: 6px;
+  z-index: 200;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.profile-menu p {
+  padding: 10px;
+  font-weight: bold;
+}
+
+.profile-menu button {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  border: none;
+  color: #ddd;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.profile-menu button:hover {
+  background: #333;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+  .profile-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+
+  .profile-container h1 {
+    font-size: 27px;
+  }
+
+  .profile-avatar {
+    width: 90px;
+    height: 90px;
+    font-size: 40px;
+  }
+
+  .site-name {
+    display: none;
+  }
+
+  .navbar nav {
+    display: none;
+  }
+
+  .hero {
+    height: 65vh;
+    padding: 0 6% 60px;
+  }
+
+  .hero h1 {
+    font-size: 35px;
+  }
+
+  .movie-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .movie-detail {
+    flex-direction: column;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .movie-detail img {
+    width: 180px;
+    height: 270px;
+    margin: auto;
+  }
+
+  .detail-info h2 {
+    font-size: 25px;
+  }
+
+  .search-container {
+    left: 5%;
+    right: 5%;
+  }
+
+  .search-container input {
+    width: 100%;
+  }
+
+}
